@@ -3,10 +3,20 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Product
 
-def product_list(request):
-    products = Product.objects.all()
-    return render(request, 'product/product_list.html', {'products': products})
+def productlist(request):
+    productlist = Product.objects.all()
+   
+    template='Product/product_list.html'
+    context={'product_list':productlist}
+    return render(request, template, context)
 
-def product_detail(request, id):
-    product = get_object_or_404(Product, id=id)
-    return render(request, 'product/product_detail.html', {'product': product})
+
+    
+
+def productdetail(request, id):
+    productdetail= Product.objects.get(id=id)
+    template ='Product/product_detail.html'
+    context ={'product_detail':productdetail}
+    return render(request,template,context)
+
+
