@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('products/', include('product.urls')),  # Correctly reference 'product.urls'
+    path('products/', include('product.urls',namespace='products')),  # Correctly reference 'product.urls'
 ]
 
 if settings.DEBUG:

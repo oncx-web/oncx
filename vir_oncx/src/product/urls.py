@@ -3,7 +3,9 @@
 from django.urls import path
 from . import views
 
+app_name ='product'
+
 urlpatterns = [
     path('', views.productlist, name='product_list'),  # Example view for listing products
-    path('<int:id>/', views.productdetail, name='product_detail'),  # Example view for product details
+    path('<slug:product_slug>/', views.productdetail, name='product_detail'),  # Example view for product details
 ]
